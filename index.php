@@ -1,4 +1,22 @@
-<?php
-
-echo "hello";
-echo '<html><script src="https://www.google.com/recaptcha/api.js"></script><body><form><div class="g-recaptcha" data-sitekey="6LccU2MUAAAAAGXvfHG__24HUkknv1WqvFNrLS4K"></div></form></body></html>';
+<html>
+  <head>
+    <title>reCAPTCHA demo: Explicit render after an onload callback</title>
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+          'sitekey' : '6LccU2MUAAAAAGXvfHG__24HUkknv1WqvFNrLS4K'
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <form action="?" method="POST">
+      <div id="html_element"></div>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+  </body>
+</html>
